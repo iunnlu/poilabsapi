@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const pointsRoute = require('./routes/points');
 const cors = require('cors');
+const pointsRoute = require('./routes/points');
+
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.send('Welcome to poilabs api!');
@@ -9,7 +11,9 @@ app.get('/', (req, res) => {
 
 app.use(cors());
 
-app.use(express.json())
+app.use(express.json());
 app.use('/api', pointsRoute);
 
-app.listen(process.env.PORT || 3000, () => console.log('Server is running on 3001 port!'));
+app.listen(PORT, () => console.log('Server is running on 3000 port!'));
+
+module.exports = app;

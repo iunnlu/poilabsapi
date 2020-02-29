@@ -23,7 +23,9 @@ router.get('/childs', (req, res) => {
                         location: item.location
                     })
                 })
-                res.send(array);
+                res.json({
+                    result: array
+                });
                 resolve('OK');
             })
         })
